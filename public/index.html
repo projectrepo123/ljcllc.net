@@ -1670,10 +1670,11 @@
     }
 
     /* Conditional reveal input */
-    .form-group-conditional[hidden] {
+    .form-group-conditional {
       display: none;
     }
-    .form-group-conditional:not([hidden]) {
+    .form-group-conditional.show {
+      display: block;
       animation: slideDown 0.25s ease;
     }
     @keyframes slideDown {
@@ -2502,7 +2503,7 @@
             </select>
           </div>
 
-          <div class="form-group form-group-conditional" id="referralOtherGroup" hidden>
+          <div class="form-group form-group-conditional" id="referralOtherGroup">
             <label for="referralOther">Tell us more</label>
             <input type="text" id="referralOther" name="referralOther" placeholder="Who referred you, or where you heard about us">
           </div>
@@ -2800,10 +2801,10 @@
       if (referralSelect && referralOtherGroup) {
         referralSelect.addEventListener('change', function() {
           if (referralSelect.value === 'other') {
-            referralOtherGroup.hidden = false;
+            referralOtherGroup.classList.add('show');
             setTimeout(function() { referralOtherInput.focus(); }, 50);
           } else {
-            referralOtherGroup.hidden = true;
+            referralOtherGroup.classList.remove('show');
             referralOtherInput.value = '';
           }
         });
