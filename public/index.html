@@ -2430,7 +2430,7 @@
       </div>
 
       <div class="estimate-form">
-        <form id="estimateForm" class="reveal">
+        <form id="estimateForm" class="reveal" action="https://formspree.io/f/mzdyovay" method="POST">
 
           <div class="hp-field" aria-hidden="true">
             <label for="website">Website</label>
@@ -2841,16 +2841,32 @@
 
         var name = document.getElementById('fullName').value.trim();
         var firstName = name.split(' ')[0];
+        var submitBtn = form.querySelector('.form-submit');
+        var originalBtnText = submitBtn ? submitBtn.textContent : '';
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending…';
+        }
 
-        successName.textContent = 'Thanks ' + firstName + '.';
-        form.style.display = 'none';
-        formSuccess.classList.add('show');
-        formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-        /*
-         * TODO: Connect to form backend
-         * Options: Formspree, Netlify Forms, Google Sheets webhook, or custom endpoint.
-         */
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(function(response) {
+          if (!response.ok) throw new Error('Submission failed');
+          successName.textContent = 'Thanks ' + firstName + '.';
+          form.style.display = 'none';
+          formSuccess.classList.add('show');
+          formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        })
+        .catch(function() {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+          }
+          alert('Sorry, there was a problem sending your message. Please try again, or call Joseph directly at (314) 649-3111.');
+        });
       });
 
       // Lazy-start gallery videos: defer loading/playback until each video
