@@ -29,11 +29,11 @@
   <meta property="og:description" content="Roofing, siding, decks, framing, drywall, painting, flooring, electrical. Free estimates.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ljcllc.net/">
-  <meta property="og:image" content="https://ljcllc.net/images/LJC-logo.png">
+  <meta property="og:image" content="https://ljcllc.net/images/og-share.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="LJC Construction | Full-Service Contractor in Jefferson County, MO">
   <meta name="twitter:description" content="Roofing, siding, decks, framing, drywall, painting, flooring, electrical. Free estimates.">
-  <meta name="twitter:image" content="https://ljcllc.net/images/LJC-logo.png">
+  <meta name="twitter:image" content="https://ljcllc.net/images/og-share.png">
   <link rel="canonical" href="https://ljcllc.net/">
 
   <!-- LOCAL BUSINESS STRUCTURED DATA -->
@@ -80,6 +80,7 @@
   <link rel="apple-touch-icon" href="images/favicon-180.png">
 
   <!-- GOOGLE FONTS — Manrope + Inter -->
+  <link rel="preload" href="images/LJC-logo.webp" as="image" type="image/webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -1707,6 +1708,19 @@
       margin-top: 14px;
     }
 
+    .form-error {
+      display: none;
+      background: #fff2f2;
+      border: 1.5px solid #e05c5c;
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-bottom: 16px;
+      font-size: 15px;
+      color: #c0392b;
+      text-align: center;
+    }
+    .form-error.show { display: block; }
+
     /* Conditional reveal input */
     .form-group-conditional {
       display: none;
@@ -2061,7 +2075,7 @@
     <div class="hero-content">
       <div class="now-booking reveal" role="status">
         <span class="dot" aria-hidden="true"></span>
-        Now booking spring projects
+        Now booking new projects
       </div>
       <h1 class="reveal">
         Built Right. <span class="sketch-underline"><span class="accent">Built Local.</span><svg aria-hidden="true" viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2,8 C40,4 80,12 120,6 C150,2 180,10 198,6"/></svg></span>
@@ -2548,6 +2562,7 @@
             <input type="text" id="referralOther" name="referralOther" placeholder="Who referred you, or where you heard about us">
           </div>
 
+          <div class="form-error" id="formError" role="alert">Something went wrong sending your message. Please try again, or call Joe directly at (314) 649-3111.</div>
           <button type="submit" class="btn btn-primary form-submit">Request My Free Estimate</button>
           <p class="form-note">We respond within 24 hours. Usually faster.</p>
         </form>
@@ -2600,7 +2615,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        &copy; <span id="footerYear"></span> LJC Construction. All rights reserved. &nbsp;|&nbsp; Built by <a href="https://jbwebco.com" target="_blank" rel="noopener">JB Web Co.</a>
+        &copy; <span id="footerYear"></span> LJC Construction. All rights reserved. &nbsp;|&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp; Built by <a href="https://jbwebco.com" target="_blank" rel="noopener">JB Web Co.</a>
       </div>
     </div>
   </footer>
@@ -2872,6 +2887,7 @@
 
       var form = document.getElementById('estimateForm');
       var formSuccess = document.getElementById('formSuccess');
+      var formError = document.getElementById('formError');
       var successName = document.getElementById('successName');
 
       form.addEventListener('submit', function(e) {
@@ -2891,6 +2907,7 @@
           submitBtn.textContent = 'Sending…';
         }
 
+        formError.classList.remove('show');
         fetch(form.action, {
           method: 'POST',
           body: new FormData(form),
@@ -2908,7 +2925,8 @@
             submitBtn.disabled = false;
             submitBtn.textContent = originalBtnText;
           }
-          alert('Sorry, there was a problem sending your message. Please try again, or call Joe directly at (314) 649-3111.');
+          formError.classList.add('show');
+          formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
       });
 
