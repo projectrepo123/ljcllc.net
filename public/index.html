@@ -28,13 +28,51 @@
   <meta property="og:title" content="LJC Construction | Full-Service Contractor in Jefferson County, MO">
   <meta property="og:description" content="Roofing, siding, decks, framing, drywall, painting, flooring, electrical. Free estimates.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ljcconstruction.com/">
-  <meta property="og:image" content="https://ljcconstruction.com/images/LJC-logo.png">
+  <meta property="og:url" content="https://ljcllc.net/">
+  <meta property="og:image" content="https://ljcllc.net/images/LJC-logo.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="LJC Construction | Full-Service Contractor in Jefferson County, MO">
   <meta name="twitter:description" content="Roofing, siding, decks, framing, drywall, painting, flooring, electrical. Free estimates.">
-  <meta name="twitter:image" content="https://ljcconstruction.com/images/LJC-logo.png">
-  <link rel="canonical" href="https://ljcconstruction.com/">
+  <meta name="twitter:image" content="https://ljcllc.net/images/LJC-logo.png">
+  <link rel="canonical" href="https://ljcllc.net/">
+
+  <!-- LOCAL BUSINESS STRUCTURED DATA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "GeneralContractor",
+    "name": "LJC Construction",
+    "image": "https://ljcllc.net/images/LJC-logo.png",
+    "url": "https://ljcllc.net",
+    "telephone": "+1-314-649-3111",
+    "email": "home@ljcllc.net",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2340 N Truman Blvd",
+      "addressLocality": "Crystal City",
+      "addressRegion": "MO",
+      "postalCode": "63028",
+      "addressCountry": "US"
+    },
+    "areaServed": [
+      {"@type":"City","name":"Arnold"},
+      {"@type":"City","name":"Festus"},
+      {"@type":"City","name":"Hillsboro"},
+      {"@type":"City","name":"De Soto"},
+      {"@type":"City","name":"Imperial"},
+      {"@type":"City","name":"Herculaneum"},
+      {"@type":"City","name":"Crystal City"},
+      {"@type":"City","name":"High Ridge"}
+    ],
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "17:00"
+    }]
+  }
+  </script>
 
   <!-- FAVICON -->
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
@@ -1650,7 +1688,7 @@
 
     .form-group input::placeholder,
     .form-group textarea::placeholder {
-      color: var(--border);
+      color: #999;
     }
 
     .form-submit {
@@ -1754,14 +1792,14 @@
     }
 
     .footer-tagline {
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.7);
       font-size: 15px;
       margin-bottom: 16px;
       font-style: italic;
     }
 
     .footer-info {
-      color: rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.7);
       font-size: 14px;
       line-height: 1.8;
     }
@@ -1783,7 +1821,7 @@
 
     .footer-links a {
       font-size: 15px;
-      color: rgba(255,255,255,0.45);
+      color: rgba(255,255,255,0.75);
       transition: color 0.2s ease;
     }
 
@@ -1793,13 +1831,13 @@
 
     .footer-contact p {
       font-size: 15px;
-      color: rgba(255,255,255,0.45);
+      color: rgba(255,255,255,0.75);
       margin-bottom: 8px;
       line-height: 1.6;
     }
 
     .footer-contact a {
-      color: rgba(255,255,255,0.55);
+      color: rgba(255,255,255,0.85);
       transition: color 0.2s ease;
     }
 
@@ -1811,11 +1849,11 @@
       padding: 20px 0;
       text-align: center;
       font-size: 13px;
-      color: rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.6);
     }
 
     .footer-bottom a {
-      color: rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.75);
       transition: color 0.2s ease;
     }
 
@@ -1969,7 +2007,7 @@
 </head>
 <body>
 
-  <a href="#hero" class="skip-link">Skip to content</a>
+  <a href="#main-content" class="skip-link">Skip to content</a>
 
   <!-- ═══════════════════════════════════════
        NAVIGATION
@@ -2013,6 +2051,8 @@
     <a href="#contact" class="btn btn-primary mobile-link" style="margin-top:24px;">Free Estimate</a>
   </div>
 
+
+  <main id="main-content">
 
   <!-- ═══════════════════════════════════════
        HERO
@@ -2307,61 +2347,61 @@
       </div>
       <div class="faq-list reveal">
         <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
             <span>Are you licensed and insured?</span>
             <span class="faq-toggle" aria-hidden="true"></span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-1" role="region" aria-label="Are you licensed and insured?">
             <div class="faq-answer-inner">Yes. We carry general liability and we'll send proof of insurance before we start any job. Ask and we'll email it over.</div>
           </div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
             <span>Do you pull permits?</span>
             <span class="faq-toggle" aria-hidden="true"></span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-2" role="region" aria-label="Do you pull permits?">
             <div class="faq-answer-inner">For anything that needs one, yes. We handle the permit and inspection process so you don't have to deal with the city or county.</div>
           </div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
             <span>How soon can you start?</span>
             <span class="faq-toggle" aria-hidden="true"></span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-3" role="region" aria-label="How soon can you start?">
             <div class="faq-answer-inner">Depends on the season and size of the job. Small interior work can usually start within a week or two. Bigger exterior projects book out further. Call us for a straight answer.</div>
           </div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
             <span>Do you stand behind your work?</span>
             <span class="faq-toggle" aria-hidden="true"></span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-4" role="region" aria-label="Do you stand behind your work?">
             <div class="faq-answer-inner">Every job. If something isn't right, we come back and fix it. Workmanship warranty on all our projects. Manufacturer warranties on materials.</div>
           </div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">
             <span>How does payment work?</span>
             <span class="faq-toggle" aria-hidden="true"></span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-5" role="region" aria-label="How does payment work?">
             <div class="faq-answer-inner">No surprises. We agree on a schedule up front in the written proposal. Usually a deposit to start, progress payments for bigger jobs, final payment when you're satisfied.</div>
           </div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-6">
             <span>Do you do commercial work?</span>
             <span class="faq-toggle" aria-hidden="true"></span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-6" role="region" aria-label="Do you do commercial work?">
             <div class="faq-answer-inner">Yes. Build-outs, tenant improvements, repairs. Reach out with details.</div>
           </div>
         </div>
@@ -2520,6 +2560,8 @@
       </div>
     </div>
   </section>
+
+  </main>
 
 
   <!-- ═══════════════════════════════════════
