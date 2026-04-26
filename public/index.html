@@ -2289,7 +2289,7 @@
 
         <div class="gallery-item reveal" data-category="exterior">
           <img src="images/ext-roofing-decking-01.jpg" alt="Exposed roof decking with shingle bundles staged at the peak" loading="lazy">
-          <div class="gallery-overlay"><span>Roof decking — prep stage</span></div>
+          <div class="gallery-overlay"><span>Roof decking prep</span></div>
         </div>
 
         <div class="gallery-item reveal" data-category="exterior">
@@ -2299,7 +2299,7 @@
 
         <div class="gallery-item reveal" data-category="exterior">
           <img src="images/ext-roofing-underlayment-01.jpg" alt="LJC crew laying synthetic roofing underlayment on a residential roof" loading="lazy">
-          <div class="gallery-overlay"><span>Roofing underlayment — in progress</span></div>
+          <div class="gallery-overlay"><span>Laying underlayment</span></div>
         </div>
 
         <div class="gallery-item reveal" data-category="exterior">
@@ -2344,7 +2344,7 @@
 
         <div class="gallery-item reveal" data-category="interior">
           <img src="images/int-kitchen-progress-01.jpg" alt="Kitchen remodel mid-install with new granite countertops and glass-front cabinets" loading="lazy">
-          <div class="gallery-overlay"><span>Kitchen remodel — in progress</span></div>
+          <div class="gallery-overlay"><span>Kitchen remodel in progress</span></div>
         </div>
 
         <div class="gallery-item reveal" data-category="interior">
@@ -2951,6 +2951,18 @@
           el.textContent = el.getAttribute('data-count') + (el.getAttribute('data-suffix') || '');
         });
       }
+
+      /* ── Shuffle gallery items so the All view doesn't lead with one category ── */
+      (function shuffleGallery() {
+        var grid = document.querySelector('.gallery-grid');
+        if (!grid) return;
+        var items = Array.prototype.slice.call(grid.querySelectorAll('.gallery-item'));
+        for (var i = items.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var t = items[i]; items[i] = items[j]; items[j] = t;
+        }
+        items.forEach(function(it) { grid.appendChild(it); });
+      })();
 
       /* ── Lightbox gallery ── */
       var lightbox = document.getElementById('lightbox');
