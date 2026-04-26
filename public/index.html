@@ -972,11 +972,47 @@
       justify-content: center;
     }
 
+    .gallery-filters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .gallery-filter {
+      background: transparent;
+      border: 1px solid var(--border-light);
+      border-radius: 999px;
+      padding: 8px 20px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-light);
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .gallery-filter:hover {
+      border-color: var(--text-body);
+      color: var(--text-heading);
+    }
+
+    .gallery-filter.is-active {
+      background: var(--lime);
+      border-color: var(--lime);
+      color: var(--black);
+    }
+
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
       margin-bottom: 48px;
+    }
+
+    .gallery-item.is-hidden {
+      display: none;
     }
 
     .gallery-item {
@@ -2231,92 +2267,146 @@
         <p class="eyebrow reveal">Our Work</p>
         <h2 class="section-headline reveal">Jobs Around Jefferson County.</h2>
       </div>
+
+      <div class="gallery-filters reveal" role="tablist" aria-label="Filter gallery by category">
+        <button type="button" class="gallery-filter is-active" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="gallery-filter" data-filter="exterior" aria-pressed="false">Exterior</button>
+        <button type="button" class="gallery-filter" data-filter="interior" aria-pressed="false">Interior</button>
+        <button type="button" class="gallery-filter" data-filter="video" aria-pressed="false">Video</button>
+      </div>
+
       <div class="gallery-grid">
 
-        <div class="gallery-item reveal">
-          <picture>
-            <source srcset="images/IMG_8049.webp" type="image/webp">
-            <img src="images/IMG_8049.jpg" alt="Exterior fascia and siding repair on a red-sided home" width="1200" height="1600" loading="lazy">
-          </picture>
+        <div class="gallery-item reveal" data-category="exterior">
+          <img src="images/ext-siding-fascia-01.jpg" alt="Exterior fascia and siding repair on a red-sided home" loading="lazy">
           <div class="gallery-overlay"><span>Exterior fascia &amp; siding repair</span></div>
         </div>
 
-        <div class="gallery-item reveal">
-          <picture>
-            <source srcset="images/IMG_0374.webp" type="image/webp">
-            <img src="images/IMG_0374.jpg" alt="Commercial interior build-out, drywall prep" width="1400" height="1050" loading="lazy">
-          </picture>
-          <div class="gallery-overlay"><span>Commercial interior build-out</span></div>
+        <div class="gallery-item reveal" data-category="exterior">
+          <img src="images/ext-roofing-shingles-02.jpg" alt="Aerial view of newly installed architectural shingle roof" loading="lazy">
+          <div class="gallery-overlay"><span>Completed shingle roof</span></div>
         </div>
 
-        <div class="gallery-item reveal">
-          <picture>
-            <source srcset="images/IMG_8113.webp" type="image/webp">
-            <img src="images/IMG_8113.jpg" alt="Kitchen ceiling and drywall repair" width="1200" height="1600" loading="lazy">
-          </picture>
+        <div class="gallery-item reveal" data-category="exterior">
+          <img src="images/ext-roofing-decking-01.jpg" alt="Exposed roof decking with shingle bundles staged at the peak" loading="lazy">
+          <div class="gallery-overlay"><span>Roof decking — prep stage</span></div>
+        </div>
+
+        <div class="gallery-item reveal" data-category="exterior">
+          <img src="images/ext-roofing-decking-02.jpg" alt="Roof decking with new OSB patch repair before shingle install" loading="lazy">
+          <div class="gallery-overlay"><span>Roof decking &amp; repair</span></div>
+        </div>
+
+        <div class="gallery-item reveal" data-category="exterior">
+          <img src="images/ext-roofing-underlayment-01.jpg" alt="LJC crew laying synthetic roofing underlayment on a residential roof" loading="lazy">
+          <div class="gallery-overlay"><span>Roofing underlayment — in progress</span></div>
+        </div>
+
+        <div class="gallery-item reveal" data-category="exterior">
+          <img src="images/ext-roofing-underlayment-02.jpg" alt="Synthetic roofing underlayment with shingle bundles staged for install" loading="lazy">
+          <div class="gallery-overlay"><span>Roofing underlayment laid</span></div>
+        </div>
+
+        <div class="gallery-item reveal" data-category="exterior">
+          <img src="images/ext-roofing-shingles-01.jpg" alt="Completed gray architectural shingle roof with new vent boots" loading="lazy">
+          <div class="gallery-overlay"><span>New architectural shingle roof</span></div>
+        </div>
+
+        <div class="gallery-item reveal" data-category="exterior">
+          <img src="images/ext-deck-painted-01.jpg" alt="Refinished black wood deck with white-painted top boards behind a two-story home" loading="lazy">
+          <div class="gallery-overlay"><span>Deck refinish &amp; paint</span></div>
+        </div>
+
+        <div class="gallery-item reveal" data-category="exterior">
+          <img src="images/ext-deck-composite-01.jpg" alt="Newly built gray composite deck with steps off a white-sided home" loading="lazy">
+          <div class="gallery-overlay"><span>New composite deck build</span></div>
+        </div>
+
+        <div class="gallery-item reveal" data-category="exterior">
+          <img src="images/ext-brick-framing-01.jpg" alt="Exterior brick wall with newly framed window opening during a structural repair" loading="lazy">
+          <div class="gallery-overlay"><span>Exterior brick &amp; framing repair</span></div>
+        </div>
+
+        <div class="gallery-item reveal" data-category="exterior">
+          <img src="images/ext-brick-painted-01.jpg" alt="Mid-project exterior brick painting transitioning red brick to gray" loading="lazy">
+          <div class="gallery-overlay"><span>Exterior brick painting</span></div>
+        </div>
+
+        <div class="gallery-item reveal" data-category="interior">
+          <img src="images/int-kitchen-complete-01.jpg" alt="Completed kitchen remodel with mosaic tile backsplash, granite tops, and exposed wood beam" loading="lazy">
+          <div class="gallery-overlay"><span>Completed kitchen remodel</span></div>
+        </div>
+
+        <div class="gallery-item reveal" data-category="interior">
+          <img src="images/int-kitchen-cabinets-01.jpg" alt="LJC crew installing white shaker kitchen cabinets" loading="lazy">
+          <div class="gallery-overlay"><span>Kitchen cabinet install</span></div>
+        </div>
+
+        <div class="gallery-item reveal" data-category="interior">
+          <img src="images/int-kitchen-progress-01.jpg" alt="Kitchen remodel mid-install with new granite countertops and glass-front cabinets" loading="lazy">
+          <div class="gallery-overlay"><span>Kitchen remodel — in progress</span></div>
+        </div>
+
+        <div class="gallery-item reveal" data-category="interior">
+          <img src="images/int-kitchen-drywall-01.jpg" alt="Kitchen ceiling and drywall repair" loading="lazy">
           <div class="gallery-overlay"><span>Kitchen ceiling &amp; drywall repair</span></div>
         </div>
 
-        <div class="gallery-item reveal">
-          <img src="images/IMG_0065.jpeg" alt="Freshly finished two-story entryway with drywall, paint, and modern pendant light" loading="lazy">
-          <div class="gallery-overlay"><span>Interior finish &amp; drywall</span></div>
+        <div class="gallery-item reveal" data-category="interior">
+          <img src="images/int-foyer-pendant-01.jpg" alt="Freshly finished two-story entryway with drywall, paint, and modern globe pendant light" loading="lazy">
+          <div class="gallery-overlay"><span>Two-story foyer finish</span></div>
         </div>
 
-        <div class="gallery-item reveal">
-          <img src="images/IMG_0067.jpeg" alt="Freshly painted foyer with wood staircase and white walls" loading="lazy">
-          <div class="gallery-overlay"><span>Interior paint &amp; finish</span></div>
+        <div class="gallery-item reveal" data-category="interior">
+          <img src="images/int-foyer-staircase-01.jpg" alt="Freshly painted foyer with wood staircase and white walls" loading="lazy">
+          <div class="gallery-overlay"><span>Foyer paint &amp; finish</span></div>
         </div>
 
-        <div class="gallery-item reveal">
-          <img src="images/IMG_0068.jpeg" alt="Staircase with wood railings and freshly painted walls" loading="lazy">
+        <div class="gallery-item reveal" data-category="interior">
+          <img src="images/int-staircase-wood-01.jpg" alt="Wood staircase with white spindles and freshly painted walls" loading="lazy">
           <div class="gallery-overlay"><span>Finish carpentry &amp; drywall</span></div>
         </div>
 
-        <div class="gallery-item reveal">
-          <img src="images/IMG_0915.jpeg" alt="Black iron stair railing installation with large windows" loading="lazy">
-          <div class="gallery-overlay"><span>Custom iron stair railing</span></div>
+        <div class="gallery-item reveal" data-category="interior">
+          <img src="images/int-staircase-oak-raw-01.jpg" alt="Newly installed unfinished oak stair treads and risers" loading="lazy">
+          <div class="gallery-overlay"><span>New oak stair install</span></div>
         </div>
 
-        <div class="gallery-item reveal">
-          <img src="images/IMG_0917.jpeg" alt="Black iron stair railing with carpet treads, detailed view" loading="lazy">
+        <div class="gallery-item reveal" data-category="interior">
+          <img src="images/int-railing-iron-01.jpg" alt="Black iron stair railing with carpet treads, detailed view" loading="lazy">
           <div class="gallery-overlay"><span>Stair railing &amp; carpet</span></div>
         </div>
 
-        <div class="gallery-item reveal">
-          <img src="images/IMG_0918.jpeg" alt="Two-story staircase with completed black iron railing, view from above" loading="lazy">
-          <div class="gallery-overlay"><span>Stair railing installation</span></div>
-        </div>
-
-        <div class="gallery-item reveal">
-          <img src="images/IMG_0920.jpeg" alt="Black iron stair railing detail with carpet treads" loading="lazy">
-          <div class="gallery-overlay"><span>Custom railing detail</span></div>
-        </div>
-
-        <div class="gallery-item reveal">
-          <img src="images/IMG_0921.jpeg" alt="Completed staircase remodel with black iron railing, carpet, and large windows" loading="lazy">
+        <div class="gallery-item reveal" data-category="interior">
+          <img src="images/int-railing-iron-02.jpg" alt="Completed staircase remodel with black iron railing, carpet, and large windows" loading="lazy">
           <div class="gallery-overlay"><span>Completed staircase remodel</span></div>
         </div>
 
-        <div class="gallery-item reveal">
-          <img src="images/IMG_7723.jpeg" alt="Black metal stair railing installation with carpet treads" loading="lazy">
-          <div class="gallery-overlay"><span>Staircase railing</span></div>
+        <div class="gallery-item reveal" data-category="interior">
+          <img src="images/int-wainscoting-01.jpg" alt="Under-stair shaker wainscoting installation in progress" loading="lazy">
+          <div class="gallery-overlay"><span>Under-stair finish carpentry</span></div>
         </div>
 
-        <div class="gallery-item reveal">
+        <div class="gallery-item reveal" data-category="interior">
+          <img src="images/int-commercial-buildout-01.jpg" alt="Commercial interior build-out, drywall prep" loading="lazy">
+          <div class="gallery-overlay"><span>Commercial interior build-out</span></div>
+        </div>
+
+        <div class="gallery-item reveal" data-category="video">
           <video class="lazy-video" muted loop playsinline preload="none" aria-hidden="true">
             <source data-src="images/mp4/4EDB51E3-8956-4BA3-9A05-8D2D35C3AA2F.mp4" type="video/mp4">
           </video>
           <div class="gallery-overlay"><span>On the job</span></div>
         </div>
 
-        <div class="gallery-item reveal">
+        <div class="gallery-item reveal" data-category="video">
           <video class="lazy-video" muted loop playsinline preload="none" aria-hidden="true">
             <source data-src="images/mp4/1056deaa08ea48359e7226a13a28d4e0.mp4" type="video/mp4">
           </video>
           <div class="gallery-overlay"><span>Crew at work</span></div>
         </div>
 
-        <div class="gallery-item reveal">
+        <div class="gallery-item reveal" data-category="video">
           <video class="lazy-video" muted loop playsinline preload="none" aria-hidden="true">
             <source data-src="images/mp4/C3F5E7D0-263D-4059-84E5-50C0561AD71F.mp4" type="video/mp4">
           </video>
@@ -2325,7 +2415,7 @@
 
       </div>
       <div class="gallery-footer reveal">
-        <a href="#contact" class="btn btn-outline">See More Work</a>
+        <a href="#contact" class="btn btn-outline">Get a Free Estimate</a>
       </div>
     </div>
   </section>
@@ -2377,10 +2467,7 @@
     <div class="container">
       <div class="about-grid">
         <div class="about-photo reveal">
-          <picture>
-            <source srcset="images/IMG_8049.webp" type="image/webp">
-            <img src="images/IMG_8049.jpg" alt="LJC Construction crew working on a home exterior" width="1200" height="1600" loading="lazy">
-          </picture>
+          <img src="images/ext-siding-fascia-01.jpg" alt="LJC Construction crew working on a home exterior" width="1200" height="1600" loading="lazy">
         </div>
         <div class="about-text">
           <p class="eyebrow reveal">Who You're Hiring</p>
@@ -2931,14 +3018,24 @@
         }
       }
 
-      function showPrev() {
-        var idx = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-        renderLightbox(idx);
+      function getVisibleItems() {
+        return galleryItems.filter(function(it) {
+          return !it.classList.contains('is-hidden');
+        });
       }
-      function showNext() {
-        var idx = (currentIndex + 1) % galleryItems.length;
-        renderLightbox(idx);
+
+      function stepLightbox(delta) {
+        var visible = getVisibleItems();
+        if (!visible.length) return;
+        var current = galleryItems[currentIndex];
+        var pos = visible.indexOf(current);
+        if (pos === -1) { renderLightbox(galleryItems.indexOf(visible[0])); return; }
+        var next = visible[(pos + delta + visible.length) % visible.length];
+        renderLightbox(galleryItems.indexOf(next));
       }
+
+      function showPrev() { stepLightbox(-1); }
+      function showNext() { stepLightbox(1); }
 
       galleryItems.forEach(function(item, i) {
         item.setAttribute('role', 'button');
@@ -2952,6 +3049,26 @@
           }
         });
       });
+
+      /* ── Gallery category filter ── */
+      var filterBar = document.querySelector('.gallery-filters');
+      if (filterBar) {
+        filterBar.addEventListener('click', function(e) {
+          var btn = e.target.closest('.gallery-filter');
+          if (!btn) return;
+          var category = btn.getAttribute('data-filter');
+          filterBar.querySelectorAll('.gallery-filter').forEach(function(b) {
+            var active = b === btn;
+            b.classList.toggle('is-active', active);
+            b.setAttribute('aria-pressed', active ? 'true' : 'false');
+          });
+          galleryItems.forEach(function(item) {
+            var itemCat = item.getAttribute('data-category');
+            var show = (category === 'all') || (itemCat === category);
+            item.classList.toggle('is-hidden', !show);
+          });
+        });
+      }
 
       lightboxClose.addEventListener('click', closeLightbox);
       lightboxPrev.addEventListener('click', showPrev);
