@@ -181,7 +181,7 @@
       background: var(--black);
       color: var(--lime);
       padding: 8px 18px 8px 14px;
-      border-radius: 50px;
+      border-radius: 4px;
       font-family: 'Manrope', sans-serif;
       font-size: 13px;
       font-weight: 700;
@@ -197,18 +197,6 @@
       position: relative;
       flex-shrink: 0;
     }
-    .now-booking .dot::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      background: var(--lime);
-      animation: pulseDot 1.8s ease-out infinite;
-    }
-    @keyframes pulseDot {
-      0%   { transform: scale(1);   opacity: 0.8; }
-      100% { transform: scale(2.8); opacity: 0; }
-    }
     @media (prefers-reduced-motion: reduce) {
       .now-booking .dot::before { animation: none; }
     }
@@ -216,8 +204,8 @@
     /* ─── MARQUEE TICKER ─── */
     .ticker {
       background: var(--black);
-      color: var(--lime);
-      padding: 18px 0;
+      color: #fff;
+      padding: 7px 0;
       overflow: hidden;
       border-top: 3px solid var(--lime);
       border-bottom: 3px solid var(--lime);
@@ -232,7 +220,7 @@
     }
     .ticker-item {
       font-family: 'Manrope', sans-serif;
-      font-size: 22px;
+      font-size: 11px;
       font-weight: 800;
       letter-spacing: 0.5px;
       text-transform: uppercase;
@@ -244,7 +232,7 @@
     .ticker-item::after {
       content: '✦';
       color: var(--lime);
-      font-size: 18px;
+      font-size: 9px;
     }
     @keyframes tickerScroll {
       from { transform: translateX(0); }
@@ -378,7 +366,6 @@
       height: 14px;
       border-radius: 3px;
       background: var(--lime);
-      border: 1.5px solid var(--black);
       flex-shrink: 0;
     }
 
@@ -413,7 +400,7 @@
       justify-content: center;
       gap: 8px;
       padding: 14px 32px;
-      border-radius: 10px;
+      border-radius: 5px;
       font-family: 'Manrope', sans-serif;
       font-size: 15px;
       font-weight: 700;
@@ -423,21 +410,21 @@
     }
 
     .btn-primary {
-      background: var(--lime);
+      background: linear-gradient(160deg, var(--lime-light) 0%, var(--lime) 55%, var(--lime-dark) 100%);
       color: var(--black);
-      border: 2px solid var(--black);
-      box-shadow: 4px 4px 0 var(--black);
+      border: none;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.14), 0 4px 18px rgba(149,184,42,0.38);
     }
 
     .btn-primary:hover {
-      background: var(--lime-light);
-      transform: translate(-2px, -2px);
-      box-shadow: 6px 6px 0 var(--black);
+      background: linear-gradient(160deg, var(--lime-light) 0%, var(--lime) 35%, var(--lime-dark) 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12), 0 10px 28px rgba(149,184,42,0.48);
     }
 
     .btn-primary:active {
-      transform: translate(2px, 2px);
-      box-shadow: 0 0 0 var(--black);
+      transform: translateY(0);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
     }
 
     .btn-secondary {
@@ -452,15 +439,18 @@
     }
 
     .btn-outline {
-      background: transparent;
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       color: var(--black);
-      border: 2px solid var(--black);
+      border: 1px solid rgba(0,0,0,0.18);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.5);
     }
 
     .btn-outline:hover {
-      background: var(--black);
-      color: var(--lime);
-      transform: translateY(-1px);
+      background: rgba(0,0,0,0.06);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
     }
 
     /* ─── SCROLL ANIMATIONS ─── */
@@ -487,17 +477,17 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      padding: 10px 0;
-      background: rgba(255, 255, 255, 0.9);
+      padding: 4px 0;
+      background: rgba(26,26,26,0.96);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(0,0,0,0.06);
+      border-bottom: none;
       transition: padding 0.3s ease, box-shadow 0.3s ease;
     }
 
     .nav.scrolled {
       padding: 6px 0;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.3);
     }
 
     .nav-inner {
@@ -515,14 +505,14 @@
     }
 
     .nav-logo img {
-      height: 88px;
+      height: 68px;
       width: auto;
       display: block;
       transition: height 0.3s ease;
     }
 
     .nav.scrolled .nav-logo img {
-      height: 68px;
+      height: 54px;
     }
     @media (max-width: 768px) {
       .nav-logo img { height: 64px; }
@@ -540,27 +530,28 @@
       font-family: 'Manrope', sans-serif;
       font-size: 15px;
       font-weight: 600;
-      color: var(--text-light);
+      color: rgba(255,255,255,0.75);
       transition: color 0.2s ease;
     }
 
     .nav-links a:hover {
-      color: var(--black);
+      color: var(--lime);
     }
 
     .nav-cta {
-      background: var(--lime) !important;
+      background: linear-gradient(160deg, var(--lime-light) 0%, var(--lime) 55%, var(--lime-dark) 100%) !important;
       color: var(--black) !important;
       padding: 10px 22px;
-      border-radius: 8px;
+      border-radius: 4px;
       font-weight: 700;
-      border: 2px solid var(--black);
-      transition: background 0.2s ease, transform 0.2s ease;
+      border: none;
+      box-shadow: 0 1px 4px rgba(149,184,42,0.4);
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
     }
 
     .nav-cta:hover {
-      background: var(--lime-light) !important;
       transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(149,184,42,0.5);
     }
 
     /* Hamburger */
@@ -583,7 +574,7 @@
       display: block;
       width: 24px;
       height: 2px;
-      background: var(--text-heading);
+      background: #fff;
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
@@ -597,6 +588,42 @@
 
     .hamburger.active span:nth-child(3) {
       transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Nav phone link (desktop nav list item) */
+    .nav-phone {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--text-light) !important;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 0.2s ease;
+    }
+    .nav-phone:hover { color: var(--black) !important; }
+    .nav-phone svg { width: 15px; height: 15px; flex-shrink: 0; stroke: currentColor; }
+    @media (max-width: 1060px) {
+      .nav-phone-text { display: none; }
+    }
+
+    /* Nav phone icon-only button (mobile header) */
+    .nav-phone-icon {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      min-width: 44px;
+      min-height: 44px;
+      color: var(--text-light);
+      text-decoration: none;
+      margin-left: auto;
+      transition: color 0.2s ease;
+    }
+    .nav-phone-icon:hover { color: var(--black); }
+    .nav-phone-icon svg { width: 20px; height: 20px; stroke: currentColor; }
+    @media (max-width: 768px) {
+      .nav-phone-icon { display: flex; }
     }
 
     /* Mobile menu overlay */
@@ -653,10 +680,10 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       position: relative;
-      background: var(--cream);
-      padding: 120px 0 80px;
+      background: linear-gradient(to right, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.32) 52%, rgba(0,0,0,0.08) 100%), url('images/hero.jpg') right center/cover no-repeat;
+      padding: 120px 24px 80px max(24px, calc((100vw - 1140px) / 2 + 24px));
       overflow: hidden;
     }
 
@@ -692,60 +719,58 @@
     .hero-content {
       position: relative;
       z-index: 2;
-      text-align: center;
-      max-width: 780px;
-      margin: 0 auto;
-      padding: 0 24px;
+      text-align: left;
+      max-width: 660px;
+      margin: 0;
+      padding: 0;
     }
 
     .hero h1 {
       font-size: 60px;
       font-weight: 800;
-      color: var(--text-heading);
+      color: #fff;
       margin-bottom: 8px;
       letter-spacing: -1.5px;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.35);
     }
 
     .hero h1 .accent {
-      color: var(--black);
-      background: var(--lime);
-      padding: 2px 14px;
-      border-radius: 6px;
-      box-decoration-break: clone;
-      -webkit-box-decoration-break: clone;
-      line-height: 1.35;
+      color: var(--lime);
     }
 
     .hero-tagline {
       font-family: 'Manrope', sans-serif;
-      font-weight: 500;
+      font-weight: 700;
       font-size: 24px;
-      color: var(--text-light);
+      color: rgba(255,255,255,0.92);
       margin-top: 16px;
       letter-spacing: 0;
       line-height: 1.35;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
     }
 
     .hero-sub {
       font-size: 18px;
-      color: var(--text-light);
+      font-weight: 500;
+      color: rgba(255,255,255,0.82);
       max-width: 520px;
-      margin: 20px auto 36px;
+      margin: 20px 0 36px;
       line-height: 1.7;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.25);
     }
 
     .hero-ctas {
       display: flex;
       gap: 16px;
-      justify-content: center;
+      justify-content: flex-start;
       flex-wrap: wrap;
       margin-bottom: 40px;
     }
 
     .trust-badges {
       display: flex;
-      gap: 12px;
-      justify-content: center;
+      gap: 28px;
+      justify-content: flex-start;
       flex-wrap: wrap;
       margin-bottom: 48px;
     }
@@ -753,13 +778,29 @@
     .trust-badge {
       font-family: 'Manrope', sans-serif;
       font-size: 13px;
-      font-weight: 700;
-      color: var(--black);
-      background: var(--lime);
-      border: 1.5px solid var(--black);
-      padding: 8px 18px;
-      border-radius: 50px;
-      letter-spacing: 0.3px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.88);
+      background: none;
+      border: none;
+      padding: 0;
+      letter-spacing: 0.2px;
+    }
+
+    .trust-badge::before {
+      content: '✓';
+      color: var(--lime);
+      font-weight: 800;
+      margin-right: 6px;
+    }
+
+    .hero .btn-outline {
+      color: #fff;
+      border-color: rgba(255,255,255,0.38);
+      background: rgba(255,255,255,0.12);
+    }
+    .hero .btn-outline:hover {
+      background: rgba(255,255,255,0.2);
+      color: #fff;
     }
 
     .scroll-indicator {
@@ -800,10 +841,10 @@
 
     .services-column {
       background: var(--warm-white);
-      border: 2px solid var(--black);
-      border-radius: 16px;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 6px;
       padding: 32px;
-      box-shadow: 6px 6px 0 var(--lime);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06), 0 8px 32px rgba(0,0,0,0.04);
     }
 
     .services-column h3 {
@@ -822,18 +863,26 @@
       width: 36px;
       height: 36px;
       background: var(--lime);
-      border: 2px solid var(--black);
-      border-radius: 8px;
+      /* Interior: filled paintbrush — handle, ferrule, bristles */
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='10.5' y='1' width='3' height='11' rx='1.5' fill='%231A1A1A'/%3E%3Crect x='9' y='11' width='6' height='3' rx='0.5' fill='%231A1A1A'/%3E%3Crect x='9.5' y='14' width='5' height='8' rx='2.5' fill='%231A1A1A'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 20px 20px;
+      border-radius: 6px;
       flex-shrink: 0;
     }
 
     .services-column.exterior h3::before {
-      background: var(--black);
+      /* Exterior: filled house silhouette (dark) with lime door cutout on lime chip */
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill-rule='evenodd' d='M3 10L12 3l9 7v11H3zM9 21h6v-7H9z' fill='%231A1A1A'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 20px 20px;
     }
 
     .services-column .col-sub {
       font-size: 14px;
-      color: var(--text-light);
+      color: #5C5C5C;
       margin-bottom: 24px;
       margin-left: 48px;
     }
@@ -854,15 +903,19 @@
       font-weight: 600;
       font-size: 16px;
       color: var(--text-heading);
-      transition: padding-left 0.2s ease, color 0.2s ease;
+      transition: background 0.2s ease, color 0.2s ease;
     }
 
     .services-list li:last-child {
       border-bottom: none;
     }
 
-    .services-list li:hover {
-      padding-left: 8px;
+    .services-list li:has(a) {
+      cursor: pointer;
+    }
+
+    .services-list li:has(a):hover {
+      background: rgba(181, 219, 54, 0.12);
       color: var(--lime-dark);
     }
 
@@ -874,6 +927,26 @@
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2395B82A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-size: contain;
+    }
+
+    .services-list li a {
+      color: inherit;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .services-list li a::after {
+      content: '→';
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--lime-dark);
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+    }
+    .services-list li:has(a):hover a::after {
+      transform: translateX(4px);
     }
 
     /* ─── SERVICES ─── */
@@ -935,7 +1008,7 @@
       height: 26px;
     }
 
-    .service-icon.red    { background: var(--lime); color: var(--black); border: 2px solid var(--black); }
+    .service-icon.red    { background: rgba(181,219,54,0.15); color: var(--lime-dark); }
     .service-icon.slate  { background: var(--black); color: var(--lime); }
 
     .service-card h3 {
@@ -1187,23 +1260,23 @@
     }
     .process-step {
       background: var(--warm-white);
-      border: 2px solid var(--black);
-      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 10px;
       padding: 28px 24px;
       position: relative;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
     .process-step:hover {
       transform: translateY(-4px);
-      box-shadow: 6px 6px 0 var(--lime);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.1);
     }
     .process-step .step-num {
       font-family: 'Manrope', sans-serif;
       font-size: 48px;
       font-weight: 800;
       line-height: 1;
-      color: var(--black);
-      text-shadow: 3px 3px 0 var(--lime);
+      color: var(--lime);
       margin-bottom: 18px;
       letter-spacing: -2px;
     }
@@ -1216,7 +1289,7 @@
     .process-step p {
       font-size: 14px;
       line-height: 1.55;
-      color: var(--text-light);
+      color: #5C5C5C;
     }
 
     /* ─── FAQ ─── */
@@ -1264,9 +1337,10 @@
     .faq-toggle {
       width: 32px;
       height: 32px;
-      border-radius: 8px;
+      border-radius: 6px;
       background: var(--lime);
-      border: 2px solid var(--black);
+      border: none;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1351,9 +1425,9 @@
     .lightbox-media {
       max-width: 100%;
       max-height: 78vh;
-      border-radius: 12px;
-      border: 3px solid var(--black);
-      box-shadow: 8px 8px 0 var(--lime);
+      border-radius: 14px;
+      border: none;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.6);
       background: var(--warm-white);
       display: block;
     }
@@ -1376,9 +1450,11 @@
       right: 18px;
       width: 44px;
       height: 44px;
-      background: var(--lime);
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       color: var(--black);
-      border: 2px solid var(--black);
+      border: 1px solid rgba(0,0,0,0.1);
       border-radius: 50%;
       font-size: 22px;
       font-weight: 800;
@@ -1386,19 +1462,18 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 3px 3px 0 var(--black);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease, background 0.2s ease;
       z-index: 2010;
       font-family: 'Manrope', sans-serif;
       line-height: 1;
     }
     .lightbox-close:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 5px 5px 0 var(--black);
+      background: rgba(255,255,255,1);
+      transform: scale(1.08);
     }
     .lightbox-close:active {
-      transform: translate(1px, 1px);
-      box-shadow: 2px 2px 0 var(--black);
+      transform: scale(0.96);
     }
     .lightbox-nav {
       position: absolute;
@@ -1406,15 +1481,17 @@
       transform: translateY(-50%);
       width: 48px;
       height: 48px;
-      background: var(--lime);
-      border: 2px solid var(--black);
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(0,0,0,0.1);
       border-radius: 50%;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 3px 3px 0 var(--black);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease, background 0.2s ease;
       z-index: 2010;
     }
     .lightbox-nav svg {
@@ -1427,6 +1504,7 @@
     .lightbox-nav.prev { left: 24px; }
     .lightbox-nav.next { right: 24px; }
     .lightbox-nav:hover {
+      background: rgba(255,255,255,1);
       transform: translateY(-50%) scale(1.08);
     }
     /* Make gallery items feel clickable */
@@ -1490,19 +1568,21 @@
       align-items: center;
       gap: 10px;
       padding: 12px 22px;
-      border-radius: 50px;
-      border: 2px solid var(--black);
+      border-radius: 5px;
+      border: 1px solid rgba(0,0,0,0.1);
       font-family: 'Manrope', sans-serif;
       font-weight: 700;
       font-size: 15px;
       background: var(--warm-white);
       color: var(--black);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
       transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
     }
     .contact-cta:hover {
       background: var(--lime);
       transform: translateY(-2px);
-      box-shadow: 3px 3px 0 var(--black);
+      box-shadow: 0 6px 20px rgba(149,184,42,0.35);
+      border-color: transparent;
     }
     .contact-cta svg {
       width: 18px;
@@ -1618,6 +1698,8 @@
       gap: 10px;
       flex-wrap: wrap;
       justify-content: center;
+      max-width: 520px;
+      margin: 0 auto;
     }
 
     .area-group-label {
@@ -1635,8 +1717,8 @@
       font-size: 13px;
       font-weight: 600;
       color: var(--black);
-      background: rgba(181,219,54,0.35);
-      border: 1px solid var(--lime-dark);
+      background: transparent;
+      border: 1.5px solid var(--lime-dark);
       padding: 8px 18px;
       border-radius: 50px;
     }
@@ -1773,6 +1855,17 @@
       font-size: 14px;
       color: var(--text-light);
       margin-top: 14px;
+    }
+    .form-reassurance {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-light);
+      margin-top: 8px;
+    }
+    input[type="email"]::-webkit-contacts-auto-fill-button,
+    input[type="email"]::-webkit-credentials-auto-fill-button {
+      display: none !important;
+      visibility: hidden;
     }
 
     .form-error {
@@ -1984,9 +2077,13 @@
         font-size: 16px;
       }
 
+      .hero {
+        background: linear-gradient(rgba(0,0,0,0.62), rgba(0,0,0,0.62)), url('images/hero.jpg') center/cover no-repeat;
+      }
+
       .hero-ctas {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
       }
 
       .hero-ctas .btn {
@@ -2078,7 +2175,7 @@
 
       .trust-badges {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
       }
 
       .about-stats {
@@ -2125,8 +2222,12 @@
         <li><a href="#about">About</a></li>
         <li><a href="#reviews">Reviews</a></li>
         <li><a href="#faq">FAQ</a></li>
+        <li><a href="tel:+13146493111" class="nav-phone" aria-label="Call (314) 649-3111"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="nav-phone-text">(314) 649-3111</span></a></li>
         <li><a href="#contact" class="nav-cta">Free Estimate</a></li>
       </ul>
+      <a href="tel:+13146493111" class="nav-phone-icon" aria-label="Call (314) 649-3111">
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span>
         <span></span>
@@ -2147,6 +2248,7 @@
     <a href="#reviews" class="mobile-link">Reviews</a>
     <a href="#faq" class="mobile-link">FAQ</a>
     <a href="#contact" class="mobile-link">Contact</a>
+    <a href="tel:+13146493111" class="mobile-link" style="color: var(--lime); font-weight: 800;">Call: (314) 649-3111</a>
     <a href="#contact" class="btn btn-primary mobile-link">Free Estimate</a>
   </div>
 
@@ -2224,16 +2326,21 @@
       </div>
       <div class="services-split">
 
+        <!-- SERVICES WITH DEDICATED PAGES (show arrow + link):
+             Exterior: Roofing, Siding, Decks
+             Interior: Drywall, Painting, Finish Carpentry
+             To add a page for a service: wrap its text in <a href="/url/">Label</a>
+             To remove a page: remove the <a> tag — arrow disappears automatically -->
         <div class="services-column exterior reveal">
           <h3>Exterior</h3>
           <p class="col-sub">Roofs, siding, decks, and everything keeping the weather out.</p>
           <ul class="services-list">
-            <li>Roofing</li>
-            <li>Siding</li>
+            <li><a href="/roofing-jefferson-county-mo/">Roofing</a></li>
+            <li><a href="/siding-st-louis-mo/">Siding</a></li>
             <li>Gutters</li>
             <li>Fascia</li>
             <li>Concrete</li>
-            <li>Decks</li>
+            <li><a href="/deck-builders-jefferson-county-mo/">Decks</a></li>
             <li>Fencing</li>
           </ul>
         </div>
@@ -2243,10 +2350,10 @@
           <p class="col-sub">Framing, drywall, finish work, all in-house.</p>
           <ul class="services-list">
             <li>Framing</li>
-            <li>Drywall</li>
+            <li><a href="/drywall-contractors-missouri/">Drywall</a></li>
             <li>Mud &amp; Tape</li>
-            <li>Painting</li>
-            <li>Finish Carpentry</li>
+            <li><a href="/painting-contractors-jefferson-county-mo/">Painting</a></li>
+            <li><a href="/finish-carpentry-jefferson-county-mo/">Finish Carpentry</a></li>
             <li>Flooring</li>
             <li>Electrical</li>
           </ul>
@@ -2261,233 +2368,6 @@
   <!-- ═══════════════════════════════════════
        GALLERY
        ═══════════════════════════════════════ -->
-  <section class="gallery" id="gallery">
-    <div class="container">
-      <div class="gallery-header">
-        <p class="eyebrow reveal">Our Work</p>
-        <h2 class="section-headline reveal">Jobs Around Jefferson County.</h2>
-      </div>
-
-      <div class="gallery-filters reveal" role="tablist" aria-label="Filter gallery by category">
-        <button type="button" class="gallery-filter is-active" data-filter="all" aria-pressed="true">All</button>
-        <button type="button" class="gallery-filter" data-filter="exterior" aria-pressed="false">Exterior</button>
-        <button type="button" class="gallery-filter" data-filter="interior" aria-pressed="false">Interior</button>
-        <button type="button" class="gallery-filter" data-filter="video" aria-pressed="false">Video</button>
-      </div>
-
-      <div class="gallery-grid">
-
-        <div class="gallery-item reveal" data-category="exterior">
-          <picture>
-            <source srcset="images/ext-siding-fascia-01.webp" type="image/webp">
-            <img src="images/ext-siding-fascia-01.jpg" alt="Exterior fascia and siding repair on a red-sided home" width="1400" height="1866" loading="lazy">
-          </picture>
-          <div class="gallery-overlay"><span>Exterior fascia &amp; siding repair</span></div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="exterior">
-          <picture>
-            <source srcset="images/ext-roofing-shingles-02.webp" type="image/webp">
-            <img src="images/ext-roofing-shingles-02.jpg" alt="Aerial view of newly installed architectural shingle roof" width="1600" height="1200" loading="lazy">
-          </picture>
-          <div class="gallery-overlay"><span>Completed shingle roof</span></div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="exterior">
-          <picture>
-            <source srcset="images/ext-roofing-decking-01.webp" type="image/webp">
-            <img src="images/ext-roofing-decking-01.jpg" alt="Exposed roof decking with shingle bundles staged at the peak" width="1200" height="1600" loading="lazy">
-          </picture>
-          <div class="gallery-overlay"><span>Roof decking prep</span></div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="exterior">
-          <picture>
-            <source srcset="images/ext-roofing-decking-02.webp" type="image/webp">
-            <img src="images/ext-roofing-decking-02.jpg" alt="Roof decking with new OSB patch repair before shingle install" width="900" height="1600" loading="lazy">
-          </picture>
-          <div class="gallery-overlay"><span>Roof decking &amp; repair</span></div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="exterior">
-          <picture>
-            <source srcset="images/ext-roofing-underlayment-01.webp" type="image/webp">
-            <img src="images/ext-roofing-underlayment-01.jpg" alt="LJC crew laying synthetic roofing underlayment on a residential roof" width="1200" height="1600" loading="lazy">
-          </picture>
-          <div class="gallery-overlay"><span>Laying underlayment</span></div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="exterior">
-          <picture>
-            <source srcset="images/ext-roofing-underlayment-02.webp" type="image/webp">
-            <img src="images/ext-roofing-underlayment-02.jpg" alt="Synthetic roofing underlayment with shingle bundles staged for install" width="1600" height="1200" loading="lazy">
-          </picture>
-          <div class="gallery-overlay"><span>Roofing underlayment laid</span></div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="exterior">
-          <picture>
-            <source srcset="images/ext-roofing-shingles-01.webp" type="image/webp">
-            <img src="images/ext-roofing-shingles-01.jpg" alt="Completed gray architectural shingle roof with new vent boots" width="900" height="1600" loading="lazy">
-          </picture>
-          <div class="gallery-overlay"><span>New architectural shingle roof</span></div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="exterior">
-          <picture>
-            <source srcset="images/ext-deck-painted-01.webp" type="image/webp">
-            <img src="images/ext-deck-painted-01.jpg" alt="Refinished black wood deck with white-painted top boards behind a two-story home" width="1600" height="1200" loading="lazy">
-          </picture>
-          <div class="gallery-overlay"><span>Deck refinish &amp; paint</span></div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="exterior">
-          <picture>
-            <source srcset="images/ext-deck-composite-01.webp" type="image/webp">
-            <img src="images/ext-deck-composite-01.jpg" alt="Newly built gray composite deck with steps off a white-sided home" width="1200" height="1600" loading="lazy">
-          </picture>
-          <div class="gallery-overlay"><span>New composite deck build</span></div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="exterior">
-          <picture>
-            <source srcset="images/ext-brick-framing-01.webp" type="image/webp">
-            <img src="images/ext-brick-framing-01.jpg" alt="Exterior brick wall with newly framed window opening during a structural repair" width="1200" height="1600" loading="lazy">
-          </picture>
-          <div class="gallery-overlay"><span>Exterior brick &amp; framing repair</span></div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="exterior">
-          <picture>
-            <source srcset="images/ext-brick-painted-01.webp" type="image/webp">
-            <img src="images/ext-brick-painted-01.jpg" alt="Mid-project exterior brick painting transitioning red brick to gray" width="1200" height="1600" loading="lazy">
-          </picture>
-          <div class="gallery-overlay"><span>Exterior brick painting</span></div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="interior">
-          <picture>
-            <source srcset="images/int-kitchen-complete-01.webp" type="image/webp">
-            <img src="images/int-kitchen-complete-01.jpg" alt="Completed kitchen remodel with mosaic tile backsplash, granite tops, and exposed wood beam" width="1200" height="1600" loading="lazy">
-          </picture>
-          <div class="gallery-overlay"><span>Completed kitchen remodel</span></div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="interior">
-          <picture>
-            <source srcset="images/int-kitchen-cabinets-01.webp" type="image/webp">
-            <img src="images/int-kitchen-cabinets-01.jpg" alt="LJC crew installing white shaker kitchen cabinets" width="1200" height="1600" loading="lazy">
-          </picture>
-          <div class="gallery-overlay"><span>Kitchen cabinet install</span></div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="interior">
-          <picture>
-            <source srcset="images/int-kitchen-progress-01.webp" type="image/webp">
-            <img src="images/int-kitchen-progress-01.jpg" alt="Kitchen remodel mid-install with new granite countertops and glass-front cabinets" width="1200" height="1600" loading="lazy">
-          </picture>
-          <div class="gallery-overlay"><span>Kitchen remodel in progress</span></div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="interior">
-          <picture>
-            <source srcset="images/int-kitchen-drywall-01.webp" type="image/webp">
-            <img src="images/int-kitchen-drywall-01.jpg" alt="Kitchen ceiling and drywall repair" width="1400" height="1866" loading="lazy">
-          </picture>
-          <div class="gallery-overlay"><span>Kitchen ceiling &amp; drywall repair</span></div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="interior">
-          <picture>
-            <source srcset="images/int-foyer-pendant-01.webp" type="image/webp">
-            <img src="images/int-foyer-pendant-01.jpg" alt="Freshly finished two-story entryway with drywall, paint, and modern globe pendant light" width="1200" height="1600" loading="lazy">
-          </picture>
-          <div class="gallery-overlay"><span>Two-story foyer finish</span></div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="interior">
-          <picture>
-            <source srcset="images/int-foyer-staircase-01.webp" type="image/webp">
-            <img src="images/int-foyer-staircase-01.jpg" alt="Freshly painted foyer with wood staircase and white walls" width="1200" height="1600" loading="lazy">
-          </picture>
-          <div class="gallery-overlay"><span>Foyer paint &amp; finish</span></div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="interior">
-          <picture>
-            <source srcset="images/int-staircase-wood-01.webp" type="image/webp">
-            <img src="images/int-staircase-wood-01.jpg" alt="Wood staircase with white spindles and freshly painted walls" width="1200" height="1600" loading="lazy">
-          </picture>
-          <div class="gallery-overlay"><span>Finish carpentry &amp; drywall</span></div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="interior">
-          <picture>
-            <source srcset="images/int-staircase-oak-raw-01.webp" type="image/webp">
-            <img src="images/int-staircase-oak-raw-01.jpg" alt="Newly installed unfinished oak stair treads and risers" width="1200" height="1600" loading="lazy">
-          </picture>
-          <div class="gallery-overlay"><span>New oak stair install</span></div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="interior">
-          <picture>
-            <source srcset="images/int-railing-iron-01.webp" type="image/webp">
-            <img src="images/int-railing-iron-01.jpg" alt="Black iron stair railing with carpet treads, detailed view" width="1200" height="1600" loading="lazy">
-          </picture>
-          <div class="gallery-overlay"><span>Stair railing &amp; carpet</span></div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="interior">
-          <picture>
-            <source srcset="images/int-railing-iron-02.webp" type="image/webp">
-            <img src="images/int-railing-iron-02.jpg" alt="Completed staircase remodel with black iron railing, carpet, and large windows" width="1600" height="1200" loading="lazy">
-          </picture>
-          <div class="gallery-overlay"><span>Completed staircase remodel</span></div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="interior">
-          <picture>
-            <source srcset="images/int-wainscoting-01.webp" type="image/webp">
-            <img src="images/int-wainscoting-01.jpg" alt="Under-stair shaker wainscoting installation in progress" width="1200" height="1600" loading="lazy">
-          </picture>
-          <div class="gallery-overlay"><span>Under-stair finish carpentry</span></div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="interior">
-          <picture>
-            <source srcset="images/int-commercial-buildout-01.webp" type="image/webp">
-            <img src="images/int-commercial-buildout-01.jpg" alt="Commercial interior build-out, drywall prep" width="1400" height="1050" loading="lazy">
-          </picture>
-          <div class="gallery-overlay"><span>Commercial interior build-out</span></div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="video">
-          <video class="lazy-video" muted loop playsinline preload="none" aria-hidden="true">
-            <source data-src="images/mp4/4EDB51E3-8956-4BA3-9A05-8D2D35C3AA2F.mp4" type="video/mp4">
-          </video>
-          <div class="gallery-overlay"><span>On the job</span></div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="video">
-          <video class="lazy-video" muted loop playsinline preload="none" aria-hidden="true">
-            <source data-src="images/mp4/1056deaa08ea48359e7226a13a28d4e0.mp4" type="video/mp4">
-          </video>
-          <div class="gallery-overlay"><span>Crew at work</span></div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="video">
-          <video class="lazy-video" muted loop playsinline preload="none" aria-hidden="true">
-            <source data-src="images/mp4/C3F5E7D0-263D-4059-84E5-50C0561AD71F.mp4" type="video/mp4">
-          </video>
-          <div class="gallery-overlay"><span>Project in progress</span></div>
-        </div>
-
-      </div>
-      <div class="gallery-footer reveal">
-        <a href="#contact" class="btn btn-outline">Get a Free Estimate</a>
-      </div>
-    </div>
-  </section>
 
 
   <!-- ═══════════════════════════════════════
@@ -2537,8 +2417,13 @@
       <div class="about-grid">
         <div class="about-photo reveal">
           <picture>
+            <!-- TODO: Replace with a clear portrait of Joe Alvarez.
+                 1. Add images/joe-portrait.webp and images/joe-portrait.jpg to the images folder.
+                 2. Update the <source> srcset below to "images/joe-portrait.webp".
+                 3. Update the <img> src below to "images/joe-portrait.jpg".
+                 Placeholder image is a job-site action shot until the portrait is provided. -->
             <source srcset="images/ext-siding-fascia-01.webp" type="image/webp">
-            <img src="images/ext-siding-fascia-01.jpg" alt="LJC Construction crew working on a home exterior" width="1400" height="1866" loading="lazy">
+            <img src="images/ext-siding-fascia-01.jpg" alt="Joe Alvarez, owner of LJC Construction" width="1400" height="1866" loading="lazy">
           </picture>
         </div>
         <div class="about-text">
@@ -2756,8 +2641,8 @@
           </div>
 
           <div class="form-group">
-            <label for="email">Email Address *</label>
-            <input type="email" id="email" name="email" required placeholder="you@email.com">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@email.com">
           </div>
 
           <div class="form-group">
@@ -2818,6 +2703,7 @@
           <div class="form-error" id="formError" role="alert">Something went wrong sending your message. Please try again, or call Joe directly at (314) 649-3111.</div>
           <button type="submit" class="btn btn-primary form-submit">Request My Free Estimate</button>
           <p class="form-note">We respond within 24 hours. Usually faster.</p>
+          <p class="form-reassurance">We'll never share your info. Straight price, no spam.</p>
         </form>
 
         <div class="form-success" id="formSuccess">
@@ -2846,17 +2732,22 @@
           <p class="footer-tagline">Built right. Built local.</p>
           <div class="footer-info">
             Fully Insured<br>
-            Serving Jefferson County
+            Serving Jefferson County<br>
+            <!-- TODO: Insert MO contractor license number -->
+            License: <em style="opacity:0.6;">on file</em>
           </div>
         </div>
         <div>
-          <h4>Quick Links</h4>
+          <h4>Services</h4>
           <ul class="footer-links">
-            <li><a href="#services">Services</a></li>
+            <li><a href="/roofing-jefferson-county-mo/">Roofing</a></li>
+            <li><a href="/deck-builders-jefferson-county-mo/">Decks</a></li>
+            <li><a href="/siding-st-louis-mo/">Siding</a></li>
+            <li><a href="/drywall-contractors-missouri/">Drywall</a></li>
+            <li><a href="/painting-contractors-jefferson-county-mo/">Painting</a></li>
+            <li><a href="/finish-carpentry-jefferson-county-mo/">Finish Carpentry</a></li>
             <li><a href="#gallery">Our Work</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#reviews">Reviews</a></li>
-            <li><a href="#contact">Get a Free Estimate</a></li>
+            <li><a href="#contact">Free Estimate</a></li>
           </ul>
         </div>
         <div class="footer-contact">
