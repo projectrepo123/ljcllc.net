@@ -54,12 +54,12 @@
     .section-headline{font-size:38px;color:var(--text-heading);margin-bottom:16px;}
     .container{max-width:1140px;margin:0 auto;padding:0 24px;}
     section{padding:100px 0;}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 32px;border-radius:10px;font-family:'Manrope',sans-serif;font-size:15px;font-weight:700;cursor:pointer;border:none;transition:transform .2s ease,box-shadow .2s ease,background .2s ease;}
-    .btn-primary{background:var(--lime);color:var(--black);border:2px solid var(--black);box-shadow:4px 4px 0 var(--black);}
-    .btn-primary:hover{background:var(--lime-light);transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--black);}
-    .btn-primary:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--black);}
-    .btn-outline{background:transparent;color:var(--black);border:2px solid var(--black);}
-    .btn-outline:hover{background:var(--black);color:var(--lime);transform:translateY(-1px);}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 32px;border-radius:5px;font-family:'Manrope',sans-serif;font-size:15px;font-weight:700;cursor:pointer;border:none;transition:transform .2s ease,box-shadow .2s ease,background .2s ease;}
+    .btn-primary{background:linear-gradient(160deg,var(--lime-light) 0%,var(--lime) 55%,var(--lime-dark) 100%);color:var(--black);border:none;box-shadow:0 1px 3px rgba(0,0,0,0.14),0 4px 18px rgba(149,184,42,0.38);}
+    .btn-primary:hover{background:linear-gradient(160deg,var(--lime-light) 0%,var(--lime) 35%,var(--lime-dark) 100%);transform:translateY(-2px);box-shadow:0 2px 6px rgba(0,0,0,0.12),0 10px 28px rgba(149,184,42,0.48);}
+    .btn-primary:active{transform:translateY(0);box-shadow:0 1px 2px rgba(0,0,0,0.1);}
+    .btn-outline{background:rgba(255,255,255,0.18);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--black);border:1px solid rgba(0,0,0,0.18);box-shadow:0 1px 4px rgba(0,0,0,0.08),inset 0 1px 0 rgba(255,255,255,0.5);}
+    .btn-outline:hover{background:rgba(0,0,0,0.06);transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,0,0,0.1);}
     .reveal{opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;}
     .reveal.visible{opacity:1;transform:translateY(0);}
     @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
