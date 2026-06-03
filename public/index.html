@@ -685,7 +685,7 @@
       align-items: center;
       justify-content: flex-start;
       position: relative;
-      background: linear-gradient(to top, rgba(0,0,0,0.32) 0%, transparent 38%), linear-gradient(to right, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.32) 52%, rgba(0,0,0,0.08) 100%), url('images/hero.jpg') right center/cover no-repeat;
+      background: linear-gradient(to top, rgba(0,0,0,0.32) 0%, transparent 38%), linear-gradient(to right, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.32) 52%, rgba(0,0,0,0.08) 100%), image-set(url('images/hero.webp') type('image/webp'), url('images/hero.jpg') type('image/jpeg')) right center/cover no-repeat;
       padding: 120px 24px 80px max(24px, calc((100vw - 1140px) / 2 + 24px));
       overflow: hidden;
     }
@@ -2074,7 +2074,7 @@
       }
 
       .hero {
-        background: linear-gradient(rgba(0,0,0,0.62), rgba(0,0,0,0.62)), url('images/hero.jpg') center/cover no-repeat;
+        background: linear-gradient(rgba(0,0,0,0.62), rgba(0,0,0,0.62)), image-set(url('images/hero.webp') type('image/webp'), url('images/hero.jpg') type('image/jpeg')) center/cover no-repeat;
       }
 
       .hero-ctas {
