@@ -2,3 +2,8 @@
 _source_media/
 .DS_Store
 Thumbs.db
+node_modules/
+
+# Local scratch: hero reference image and a saved-page dump
+heroimage.jpg
+heroimage_files/
