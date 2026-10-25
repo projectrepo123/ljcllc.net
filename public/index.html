@@ -257,7 +257,7 @@
       background: var(--black);
       color: var(--lime);
       padding: 8px 18px 8px 14px;
-      border-radius: 2px;
+      border-radius: 4px;
       font-family: 'Manrope', sans-serif;
       font-size: 13px;
       font-weight: 700;
@@ -472,28 +472,30 @@
       justify-content: center;
       gap: 8px;
       padding: 14px 32px;
-      border-radius: 3px;
+      border-radius: 4px;
       font-family: 'Manrope', sans-serif;
       font-size: 15px;
       font-weight: 700;
       cursor: pointer;
       border: none;
-      transition: box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
     }
 
     .btn-primary {
-      background: var(--black);
-      color: #fff;
+      background: linear-gradient(160deg, var(--lime-light) 0%, var(--lime) 55%, var(--lime-dark) 100%);
+      color: var(--black);
       border: none;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.14);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.14), 0 4px 18px rgba(149,184,42,0.38);
     }
 
     .btn-primary:hover {
-      background: var(--black-soft);
-      box-shadow: 0 4px 16px rgba(26,26,26,0.22), inset 0 -2px 0 var(--lime);
+      background: linear-gradient(160deg, var(--lime-light) 0%, var(--lime) 35%, var(--lime-dark) 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12), 0 10px 28px rgba(149,184,42,0.48);
     }
 
     .btn-primary:active {
+      transform: translateY(0);
       box-shadow: 0 1px 2px rgba(0,0,0,0.1);
     }
 
@@ -607,17 +609,19 @@
     }
 
     .nav-cta {
-      background: var(--lime) !important;
+      background: linear-gradient(160deg, var(--lime-light) 0%, var(--lime) 55%, var(--lime-dark) 100%) !important;
       color: var(--black) !important;
       padding: 10px 22px;
-      border-radius: 3px;
+      border-radius: 4px;
       font-weight: 700;
       border: none;
-      transition: background 0.2s ease;
+      box-shadow: 0 1px 4px rgba(149,184,42,0.4);
+      transition: background 0.2s ease, transform 0.2s ease;
     }
 
     .nav-cta:hover {
-      background: var(--lime-dark) !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(149,184,42,0.5);
     }
 
     /* Hamburger */
@@ -855,17 +859,17 @@
       flex-direction: column;
       align-items: center;
       gap: 6px;
-      color: var(--text-light);
+      color: #fff;
       font-size: 12px;
       letter-spacing: 1px;
-      opacity: 0.4;
+      opacity: 0.75;
       animation: scrollBounce 2s ease-in-out infinite;
     }
 
     .scroll-indicator svg {
-      width: 20px;
-      height: 20px;
-      stroke: var(--text-light);
+      width: 24px;
+      height: 24px;
+      stroke: #fff;
     }
 
     @keyframes scrollBounce {
@@ -884,7 +888,7 @@
     .services-column {
       background: var(--warm-white);
       border: 1px solid rgba(0,0,0,0.08);
-      border-radius: 6px;
+      border-radius: 8px;
       padding: 32px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.06), 0 8px 32px rgba(0,0,0,0.04);
     }
@@ -904,13 +908,23 @@
       display: inline-block;
       width: 36px;
       height: 36px;
-      background: var(--lime);
       border-radius: 6px;
       flex-shrink: 0;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 20px 20px;
     }
 
+    /* House icon */
     .services-column.exterior h3::before {
-      background: var(--black);
+      background-color: var(--black);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B5DB36' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 10.5 12 3l9 7.5'/%3E%3Cpath d='M5 9v12h14V9'/%3E%3Cpath d='M10 21v-6h4v6'/%3E%3C/svg%3E");
+    }
+
+    /* Paint roller icon */
+    .services-column.interior h3::before {
+      background-color: var(--lime);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231A1A1A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='14' height='6' rx='1'/%3E%3Cpath d='M17 6h3v5h-8v3'/%3E%3Crect x='10' y='14' width='4' height='7' rx='1'/%3E%3C/svg%3E");
     }
 
     .services-column .col-sub {
@@ -1006,7 +1020,7 @@
     .service-card {
       background: var(--warm-white);
       border: 1px solid var(--border-light);
-      border-radius: 4px;
+      border-radius: 8px;
       padding: 36px 28px;
       transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
       border-top: 3px solid transparent;
@@ -1089,7 +1103,7 @@
     .gallery-filter {
       background: transparent;
       border: 1px solid var(--border);
-      border-radius: 2px;
+      border-radius: 4px;
       padding: 8px 20px;
       font-family: 'Manrope', sans-serif;
       font-size: 14px;
@@ -1126,7 +1140,7 @@
       aspect-ratio: 4 / 3;
       background: var(--warm-white);
       border: 1px solid var(--border-light);
-      border-radius: 3px;
+      border-radius: 8px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -1185,8 +1199,33 @@
       font-weight: 600;
     }
 
+    /* Touch screens can't hover, so keep captions visible */
+    @media (hover: none) {
+      .gallery-overlay {
+        opacity: 1;
+        padding: 10px 12px;
+        background: linear-gradient(to top, rgba(42,42,42,0.8) 0%, transparent 50%);
+      }
+      .gallery-overlay span {
+        font-size: 12px;
+        line-height: 1.35;
+      }
+    }
+
+    /* Collapsed gallery: items past the limit stay hidden until "See more work" */
+    .gallery-item.is-overflow {
+      display: none;
+    }
+
     .gallery-footer {
-      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .gallery-more[hidden] {
+      display: none;
     }
 
     /* ─── ABOUT ─── */
@@ -1205,7 +1244,7 @@
       width: 100%;
       max-width: 320px;
       aspect-ratio: 1;
-      border-radius: 16px;
+      border-radius: 8px;
       background: var(--warm-gray);
       border: 1px solid var(--border-light);
       display: flex;
@@ -1222,7 +1261,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 14px;
+      border-radius: 0;
     }
 
     .about-photo svg {
@@ -1254,7 +1293,7 @@
     .about-stat {
       background: var(--cream);
       border: 1px solid var(--border-light);
-      border-radius: 4px;
+      border-radius: 8px;
       padding: 18px 24px;
       text-align: center;
     }
@@ -1295,7 +1334,7 @@
     .process-step {
       background: var(--warm-white);
       border: 1px solid var(--border-light);
-      border-radius: 4px;
+      border-radius: 8px;
       padding: 28px 24px;
       position: relative;
       transition: border-color 0.25s ease, box-shadow 0.25s ease;
@@ -1458,7 +1497,7 @@
     .lightbox-media {
       max-width: 100%;
       max-height: 78vh;
-      border-radius: 14px;
+      border-radius: 8px;
       border: none;
       box-shadow: 0 32px 80px rgba(0,0,0,0.6);
       background: var(--warm-white);
@@ -1568,7 +1607,7 @@
       align-items: center;
       gap: 10px;
       padding: 12px 22px;
-      border-radius: 3px;
+      border-radius: 4px;
       border: 1px solid rgba(0,0,0,0.14);
       font-family: 'Manrope', sans-serif;
       font-weight: 700;
@@ -1622,7 +1661,7 @@
     .review-card {
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 4px;
+      border-radius: 8px;
       padding: 32px 28px;
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
@@ -1653,7 +1692,7 @@
       font-family: 'Manrope', sans-serif;
       font-size: 14px;
       font-weight: 700;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.7);
     }
 
     .reviews-google {
@@ -1721,10 +1760,16 @@
       border-radius: 50px;
     }
 
+    .area-more {
+      font-size: 14px;
+      color: var(--text-light);
+      margin-top: 14px;
+    }
+
     .area-map {
       background: var(--warm-white);
       border: 1px solid var(--border-light);
-      border-radius: 12px;
+      border-radius: 8px;
       min-height: 360px;
       display: flex;
       align-items: center;
@@ -1739,7 +1784,7 @@
       height: 100%;
       min-height: 360px;
       border: none;
-      border-radius: 12px;
+      border-radius: 8px;
     }
 
     /* ─── ESTIMATE FORM ─── */
@@ -1798,7 +1843,7 @@
       width: 100%;
       background: var(--warm-white);
       border: 1.5px solid var(--border);
-      border-radius: 10px;
+      border-radius: 4px;
       padding: 14px 16px;
       min-height: 48px;
       font-family: 'Inter', sans-serif;
@@ -1844,7 +1889,7 @@
       padding: 16px;
       font-size: 17px;
       font-weight: 700;
-      border-radius: 10px;
+      border-radius: 4px;
       cursor: pointer;
     }
 
@@ -1870,7 +1915,7 @@
       display: none;
       background: #fff2f2;
       border: 1.5px solid #e05c5c;
-      border-radius: 10px;
+      border-radius: 4px;
       padding: 14px 18px;
       margin-bottom: 16px;
       font-size: 15px;
@@ -2033,6 +2078,27 @@
       color: rgba(255,255,255,0.6);
     }
 
+    .footer-review {
+      text-align: center;
+      padding: 32px 0 8px;
+    }
+
+    .footer .btn-outline {
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      background: transparent;
+    }
+
+    .footer .btn-outline:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.6);
+      color: #fff;
+    }
+
+    .form-success .btn {
+      margin-top: 24px;
+    }
+
     .mobile-menu-logo {
       height: 150px;
       width: auto;
@@ -2062,9 +2128,18 @@
         display: none;
       }
 
+      .ticker {
+        display: none;
+      }
+
       .hero h1 {
         font-size: 36px;
         letter-spacing: -0.5px;
+      }
+
+      /* Break after "Built Right." instead of mid-phrase */
+      .hero h1 .accent {
+        display: block;
       }
 
       .hero-tagline {
@@ -2174,6 +2249,7 @@
       .trust-badges {
         flex-direction: column;
         align-items: flex-start;
+        gap: 6px;
       }
 
       .about-stats {
@@ -2369,7 +2445,7 @@
           <div class="gallery-overlay"><span>Exterior fascia &amp; siding repair</span></div>
         </div>
 
-        <div class="gallery-item reveal" data-category="exterior">
+        <div class="gallery-item reveal" data-featured data-category="exterior">
           <picture><source srcset="images/ext-roofing-shingles-02.webp" type="image/webp"><img src="images/ext-roofing-shingles-02.jpg" alt="Aerial view of newly installed architectural shingle roof" loading="lazy" width="1600" height="1200"></picture>
           <div class="gallery-overlay"><span>Completed shingle roof</span></div>
         </div>
@@ -2386,7 +2462,7 @@
 
         <div class="gallery-item reveal" data-category="exterior">
           <picture><source srcset="images/ext-roofing-underlayment-01.webp" type="image/webp"><img src="images/ext-roofing-underlayment-01.jpg" alt="LJC crew laying synthetic roofing underlayment on a residential roof" loading="lazy" width="1200" height="1600"></picture>
-          <div class="gallery-overlay"><span>Roofing underlayment — in progress</span></div>
+          <div class="gallery-overlay"><span>Roofing underlayment, in progress</span></div>
         </div>
 
         <div class="gallery-item reveal" data-category="exterior">
@@ -2404,7 +2480,7 @@
           <div class="gallery-overlay"><span>Deck refinish &amp; paint</span></div>
         </div>
 
-        <div class="gallery-item reveal" data-category="exterior">
+        <div class="gallery-item reveal" data-featured data-category="exterior">
           <picture><source srcset="images/ext-deck-composite-01.webp" type="image/webp"><img src="images/ext-deck-composite-01.jpg" alt="Newly built gray composite deck with steps off a white-sided home" loading="lazy" width="1200" height="1600"></picture>
           <div class="gallery-overlay"><span>New composite deck build</span></div>
         </div>
@@ -2434,12 +2510,12 @@
           <div class="gallery-overlay"><span>Concrete flatwork</span></div>
         </div>
 
-        <div class="gallery-item reveal" data-category="exterior">
+        <div class="gallery-item reveal" data-featured data-category="exterior">
           <picture><source srcset="images/ext-concrete-driveway-04.webp" type="image/webp"><img src="images/ext-concrete-driveway-04.jpg" alt="Finished concrete driveway in Jefferson County by LJC Construction" loading="lazy" width="1400" height="1050"></picture>
           <div class="gallery-overlay"><span>Finished concrete driveway</span></div>
         </div>
 
-        <div class="gallery-item reveal" data-category="interior">
+        <div class="gallery-item reveal" data-featured data-category="interior">
           <picture><source srcset="images/int-kitchen-complete-01.webp" type="image/webp"><img src="images/int-kitchen-complete-01.jpg" alt="Completed kitchen remodel with mosaic tile backsplash, granite tops, and exposed wood beam" loading="lazy" width="1200" height="1600"></picture>
           <div class="gallery-overlay"><span>Completed kitchen remodel</span></div>
         </div>
@@ -2459,7 +2535,7 @@
           <div class="gallery-overlay"><span>Kitchen ceiling &amp; drywall repair</span></div>
         </div>
 
-        <div class="gallery-item reveal" data-category="interior">
+        <div class="gallery-item reveal" data-featured data-category="interior">
           <picture><source srcset="images/int-foyer-pendant-01.webp" type="image/webp"><img src="images/int-foyer-pendant-01.jpg" alt="Freshly finished two-story entryway with drywall, paint, and modern globe pendant light" loading="lazy" width="1200" height="1600"></picture>
           <div class="gallery-overlay"><span>Two-story foyer finish</span></div>
         </div>
@@ -2484,7 +2560,7 @@
           <div class="gallery-overlay"><span>Stair railing &amp; carpet</span></div>
         </div>
 
-        <div class="gallery-item reveal" data-category="interior">
+        <div class="gallery-item reveal" data-featured data-category="interior">
           <picture><source srcset="images/int-railing-iron-02.webp" type="image/webp"><img src="images/int-railing-iron-02.jpg" alt="Completed staircase remodel with black iron railing, carpet, and large windows" loading="lazy" width="1600" height="1200"></picture>
           <div class="gallery-overlay"><span>Completed staircase remodel</span></div>
         </div>
@@ -2501,7 +2577,8 @@
 
       </div>
       <div class="gallery-footer reveal">
-        <a href="#contact" class="btn btn-outline">Get a Free Estimate</a>
+        <button type="button" class="btn btn-outline gallery-more" id="galleryMore" aria-expanded="false">See More Work</button>
+        <a href="#contact" class="btn btn-primary">Get a Free Estimate</a>
       </div>
     </div>
   </section>
@@ -2560,7 +2637,7 @@
                  3. Update the <img> src below to "images/joe-portrait.jpg".
                  Placeholder image is a job-site action shot until the portrait is provided. -->
             <source srcset="images/ext-siding-fascia-01.webp" type="image/webp">
-            <img src="images/ext-siding-fascia-01.jpg" alt="Joe Alvarez, owner of LJC Construction" width="1400" height="1866" loading="lazy">
+            <img src="images/ext-siding-fascia-01.jpg" alt="LJC crew on ladders repairing fascia and siding on a red-sided home" width="1400" height="1866" loading="lazy">
           </picture>
         </div>
         <div class="about-text">
@@ -2770,8 +2847,8 @@
             <span class="area-pill">Chesterfield</span>
             <span class="area-pill">Webster Groves</span>
             <span class="area-pill">Kirkwood</span>
-            <span class="area-pill">And More</span>
           </div>
+          <p class="area-more">And surrounding areas</p>
         </div>
       </div>
     </div>
@@ -2887,6 +2964,7 @@
           <div class="check-circle">&#10003;</div>
           <h3 id="successName">Thanks! We'll be in touch.</h3>
           <p>Joe will get back to you within 24 hours to talk through your project.</p>
+          <!-- Re-enable once Joe's Google review link replaces GOOGLE_REVIEW_LINK_HERE: <a href="GOOGLE_REVIEW_LINK_HERE" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Leave a Review on Google</a> -->
         </div>
       </div>
     </div>
@@ -2909,9 +2987,8 @@
           <p class="footer-tagline">Built right. Built local.</p>
           <div class="footer-info">
             Fully Insured<br>
-            Serving Jefferson County<br>
-            <!-- TODO: Insert MO contractor license number -->
-            License: <em style="opacity:0.6;">on file</em>
+            Serving Jefferson County
+            <!-- TODO: Add "License: #####" line once Joe provides the MO contractor license number -->
           </div>
         </div>
         <div>
@@ -2937,6 +3014,11 @@
           <p><strong>Hours:</strong> Mon-Fri 9am-5pm</p>
         </div>
       </div>
+      <!-- Re-enable once Joe's Google review link replaces GOOGLE_REVIEW_LINK_HERE
+    <div class="footer-review">
+        <a href="GOOGLE_REVIEW_LINK_HERE" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Leave a Review on Google</a>
+      </div>
+    -->
       <div class="footer-bottom">
         &copy; <span id="footerYear"></span> LJC Construction. All rights reserved. &nbsp;|&nbsp; <a href="/privacy">Privacy Policy</a> &nbsp;|&nbsp; Built by <a href="https://jbwebco.com" target="_blank" rel="noopener">JB Web Co.</a>
       </div>
@@ -3076,16 +3158,21 @@
         });
       }
 
-      /* ── Shuffle gallery items so the All view doesn't lead with one category ── */
+      /* ── Shuffle gallery items so the All view doesn't lead with one category.
+            Featured (finished) shots are shuffled among themselves and always lead. ── */
       (function shuffleGallery() {
         var grid = document.querySelector('.gallery-grid');
         if (!grid) return;
-        var items = Array.prototype.slice.call(grid.querySelectorAll('.gallery-item'));
-        for (var i = items.length - 1; i > 0; i--) {
-          var j = Math.floor(Math.random() * (i + 1));
-          var t = items[i]; items[i] = items[j]; items[j] = t;
+        function shuffle(items) {
+          for (var i = items.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var t = items[i]; items[i] = items[j]; items[j] = t;
+          }
+          return items;
         }
-        items.forEach(function(it) { grid.appendChild(it); });
+        var featured = shuffle(Array.prototype.slice.call(grid.querySelectorAll('.gallery-item[data-featured]')));
+        var rest = shuffle(Array.prototype.slice.call(grid.querySelectorAll('.gallery-item:not([data-featured])')));
+        featured.concat(rest).forEach(function(it) { grid.appendChild(it); });
       })();
 
       /* ── Lightbox gallery ── */
@@ -3186,6 +3273,35 @@
         });
       });
 
+      /* ── Gallery limit: show the first 9 (6 on phones) until "See more work" ── */
+      var galleryMore = document.getElementById('galleryMore');
+      var galleryExpanded = false;
+      var smallScreen = window.matchMedia('(max-width: 768px)');
+
+      function applyGalleryLimit() {
+        var limit = smallScreen.matches ? 6 : 9;
+        var visible = getVisibleItems();
+        galleryItems.forEach(function(item) { item.classList.remove('is-overflow'); });
+        if (!galleryExpanded) {
+          visible.slice(limit).forEach(function(item) { item.classList.add('is-overflow'); });
+        }
+        if (galleryMore) {
+          galleryMore.hidden = galleryExpanded || visible.length <= limit;
+        }
+      }
+
+      if (galleryMore) {
+        galleryMore.addEventListener('click', function() {
+          galleryExpanded = true;
+          galleryMore.setAttribute('aria-expanded', 'true');
+          applyGalleryLimit();
+        });
+      }
+      if (smallScreen.addEventListener) {
+        smallScreen.addEventListener('change', applyGalleryLimit);
+      }
+      applyGalleryLimit();
+
       /* ── Gallery category filter ── */
       var filterBar = document.querySelector('.gallery-filters');
       if (filterBar) {
@@ -3203,6 +3319,7 @@
             var show = (category === 'all') || (itemCat === category);
             item.classList.toggle('is-hidden', !show);
           });
+          applyGalleryLimit();
         });
       }
 
